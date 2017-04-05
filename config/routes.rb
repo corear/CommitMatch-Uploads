@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  devise_for :users
+  devise_scope :user do
+  get 'sign_in', to: 'devise/sessions#new'
+  get 'sign_up', to: 'devise/registrations#new'
+  get 'passwords/new', to: 'devise/passwords#new'
+end
   # Define routes for navigating to pages
   root 'pages#index'
   # Sets default page ^
